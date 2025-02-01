@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '~dataTables.net-dt/css/dataTables';
+
+@font-face{
+    font-family: Poppins-Regular;
+    src: url("fonts/poppins/Poppins-Regular.ttf");
+}
+
+
+* {
+    font-family: Poppins-Regular;
+    font-weight: 400;
+    font-style: normal;
+    padding: 0;
+    margin: 0;
+}
+
+.coe {
+    --brand: 143, 11, 19;
+    --primary: 254, 204, 15;
+    --secondary: 56, 15, 23;
+    --neutral: 239, 223, 197;
+    --contrast: 37, 43, 43;
+}
+
+.cpe {
+    --brand: 19, 44, 71;
+    --primary: 251, 174, 84;
+    --secondary: 216, 99, 80;
+    --neutral: 212, 236, 233;
+    --contrast: 19, 44, 71;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.input-group label {
+    top: 4px;
+    left: 4px;
+    transition: all ease 200ms;
+}
+
+.input-group input:focus~label {
+    font-size: smaller;
+    top: -17px;
+    color: rgb(var(--brand));
+}
+
+.input-group input:valid~label {
+    font-size: smaller;
+    top: -17px;
+    color: rgb(var(--brand));
+}
+
+@keyframes alert-show {
+    from {
+        transform: translateY(-100px);
+    }
+
+    to {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes alert-hide {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(-100px);
+    }
+}
+
+.alert {
+    animation: alert-show 0.8s ease forwards;
+}
+
+/* sidebar section starts */
+.sidebar {
+    max-width: 264px;
+    min-width: 264px;
+}
+
+.main-logo {
+    width: 80px;
+}
+
+.sub {
+    bottom: -5px;
+    right: -5px;
+}
+
+.sub-logo {
+    width: 40px;
+    height: 40px;
+}
+
+.logo-name {
+    font-size: 24px;
+}
+
+/* sidebar section ends */
+
+/* dialogbox section starts */
+
+.modal{
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100dvw;
+    max-width: 100dvw;
+    min-height: 100dvh;
+    max-height: 100dvh;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+.modal .card{
+    width: 90vw;
+    max-width: 500px;
+    background: white;
+}
+
+.modal .card .modal-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 24px;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.3);
+}
+
+.modal .card .modal-body{
+    padding: 6px 24px;
+    
+}
+
+.modal .card .modal-foot{
+    padding: 4px 0px;
+    margin-top: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: end;
+}
+
+.modal .card .modal-foot button {
+    background: rgb(var(--brand));
+    color: white;
+    padding: 3px 10px;
+    border-radius: 2px;
+}
+
+
+/* dialogbox section ends */
+
+/* tooltip section starts */
+
+
+.tooltip button{
+    padding: 5px 10px;
+    border: 1px solid #1f1f1f;
+}
+
+.tooltip button:not(:last-child){
+    border-bottom: 1px solid #1f1f1f;
+}
+
+.tooltip button:hover{
+    background: #f3f3f3;
+}
+/* tooltip section ends */
+
+#yearDivisor::-webkit-scrollbar {
+    display: none;
+}
+
+.hide-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    scroll-behavior: smooth;
+  }

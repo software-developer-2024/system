@@ -1,0 +1,59 @@
+$gradesAvailability = false;
+                                    if (sizeof($subjectReturn) > 0) {
+                                        ?>
+                                        <form action="/students/<?= $student['studentId'] ?>/update/subjects" method="post" class=" max-h-full">
+                                            <input type="text" name="year" id="year" value="<?= $year['year'] ?>" hidden>
+                                            <input type="text" name="semester" id="semester" value="<?= $semester['semester'] ?>" hidden>
+                                            <input type="text" name="studentId" id="studentId" value="<?= $student['studentId'] ?>" hidden>
+                                            <button type="submit" class="px-3 py-6 shadow <?= $availability? "bg-gray-100/10 hover:bg-gray-400/40" : "bg-gray-400/20 pointer-events-none" ?>" <?= !$availability? "disable" : "" ?> >
+                                                <div class="text-sm font-medium text-center"><?= "{$yearDivisor} - {$termDivisor}" ?>
+                                                </div>
+                                                <table width="600" class="w-full">
+                                                    <tr class="bg-gray-800/20">
+                                                        <th width="75"
+                                                            class="text-xs font-semibold text-center py-1 border border-black">
+                                                            Code</th>
+                                                        <th width="300"
+                                                            class="text-xs font-semibold text-center py-1 border border-black">
+                                                            Description</th>
+                                                        <th width="45"
+                                                            class="text-xs font-semibold text-center py-1 border border-black">
+                                                            Units</th>
+                                                        <th width="45"
+                                                            class="text-xs font-semibold text-center py-1 border border-black">
+                                                            Grade</th>
+                                                        <th width="135"
+                                                            class="text-xs font-semibold text-center py-1 border border-black">
+                                                            Status</th>
+                                                    </tr>
+                                                    <?php
+                                                    foreach ($subjectReturn as $subject) {
+                                                        ?>
+
+                                                        <tr class="bg-yellow-100/10">
+                                                            <td class="text-xs text-center p-1 border border-black"><?= $subject['code'] ?>
+                                                            </td>
+                                                            <td class="text-xs text-center p-1 border border-black">
+                                                                <?= $subject['description'] ?>
+                                                            </td>
+                                                            <td class="text-xs text-center p-1 border border-black"><?= $subject['units'] ?>
+                                                            </td>
+                                                            <td class="text-xs text-center font-medium p-1 border border-black <?= ($subject['status'] == 'FAILED')? 'text-red-600' : '' ?>"><?= $subject['grade'] ?>
+                                                            </td>
+                                                            <td class="text-xs text-center font-medium p-1 border border-black <?php if ($subject['status'] == 'FAILED' || $subject['status'] == 'DROPPED' || $subject['status'] == 'ON HOLD') { echo 'text-red-600'; } else if ($subject['status'] == 'PASSED') { echo 'text-green-700'; } ?>"><?= $subject['status'] ?>
+                                                            </td>
+                                                        </tr>
+
+                                                        <?php
+
+                                                        ($subject['status'] == "Unavailable" || $subject['status'] == "PENDING")? $availability = false : $availability = true;
+                                                        ($subject['status'] == "PENDING")? $gradesAvailability = true : $gradesAvailability = false;
+                                                    }
+                                                    ?>
+
+                                                </table>
+                                            </button>
+                                        </form>
+
+                                        <?php
+                                    }

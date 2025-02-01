@@ -1,0 +1,25 @@
+{
+  "name": "system",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "tailwindcss": "^3.4.14"
+  },
+  "dependencies": {
+    "datatables.net-buttons-dt": "^3.1.2",
+    "datatables.net-dt": "^2.1.8",
+    "dotenv": "^16.4.5",
+    "flowbite": "^2.5.2",
+    "jquery": "^3.7.1",
+    "jszip": "^3.10.1",
+    "mysql": "^2.18.1",
+    "pdfmake": "^0.2.15"
+  }
+}
